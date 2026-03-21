@@ -1,0 +1,389 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* GTA 5 Inspired Dark Neon Theme */
+:root {
+  --background: #0a0a0f;
+  --foreground: #e8e8e8;
+  --card: #12121a;
+  --card-foreground: #e8e8e8;
+  --popover: #12121a;
+  --popover-foreground: #e8e8e8;
+  --primary: #00d4ff;
+  --primary-foreground: #0a0a0f;
+  --secondary: #1a1a2e;
+  --secondary-foreground: #e8e8e8;
+  --muted: #16162a;
+  --muted-foreground: #888899;
+  --accent: #ff3366;
+  --accent-foreground: #ffffff;
+  --destructive: #ff2244;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a4a;
+  --input: #1a1a2e;
+  --ring: #00d4ff;
+  --chart-1: #00d4ff;
+  --chart-2: #ff3366;
+  --chart-3: #00ff88;
+  --chart-4: #ffaa00;
+  --chart-5: #aa44ff;
+  --radius: 0.5rem;
+  --neon-cyan: #00d4ff;
+  --neon-pink: #ff3366;
+  --neon-green: #00ff88;
+  --neon-orange: #ff8800;
+  --sidebar: #0f0f1a;
+  --sidebar-foreground: #e8e8e8;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #0a0a0f;
+  --sidebar-accent: #1a1a2e;
+  --sidebar-accent-foreground: #e8e8e8;
+  --sidebar-border: #2a2a4a;
+  --sidebar-ring: #00d4ff;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom GTA-style animations */
+@keyframes neon-pulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  }
+  50% { 
+    text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan), 0 0 80px var(--neon-cyan);
+  }
+}
+
+@keyframes neon-pulse-pink {
+  0%, 100% { 
+    text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+  }
+  50% { 
+    text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink);
+  }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); clip-path: inset(0 0 0 0); }
+  10% { transform: translate(-5px, 5px); clip-path: inset(40% 0 61% 0); }
+  20% { transform: translate(5px, -5px); clip-path: inset(92% 0 1% 0); }
+  30% { transform: translate(-5px, -5px); clip-path: inset(43% 0 1% 0); }
+  40% { transform: translate(5px, 5px); clip-path: inset(25% 0 58% 0); }
+  50% { transform: translate(-5px, 0); clip-path: inset(54% 0 7% 0); }
+  60% { transform: translate(5px, 2px); clip-path: inset(58% 0 43% 0); }
+  70% { transform: translate(-2px, -5px); clip-path: inset(73% 0 23% 0); }
+  80% { transform: translate(2px, 5px); clip-path: inset(37% 0 52% 0); }
+  90% { transform: translate(-5px, 2px); clip-path: inset(12% 0 69% 0); }
+  100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-2deg); }
+  40% { transform: skew(2deg); }
+  60% { transform: skew(-1deg); }
+  80% { transform: skew(1deg); }
+  100% { transform: skew(0deg); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes scanline-move {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-20px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--neon-cyan), inset 0 0 5px var(--neon-cyan); }
+  50% { box-shadow: 0 0 20px var(--neon-cyan), inset 0 0 10px var(--neon-cyan); }
+}
+
+@keyframes text-flicker {
+  0%, 100% { opacity: 1; }
+  33% { opacity: 0.9; }
+  66% { opacity: 0.95; }
+  77% { opacity: 0.85; }
+  88% { opacity: 1; }
+}
+
+@keyframes chromatic-aberration {
+  0% { text-shadow: -2px 0 #ff0000, 2px 0 #00ffff; }
+  25% { text-shadow: -1px 0 #ff0000, 1px 0 #00ffff; }
+  50% { text-shadow: -2px 0 #ff0000, 2px 0 #00ffff; }
+  75% { text-shadow: -1px 0 #ff0000, 1px 0 #00ffff; }
+  100% { text-shadow: -2px 0 #ff0000, 2px 0 #00ffff; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.neon-text-pink {
+  animation: neon-pulse-pink 2s ease-in-out infinite;
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+.glitch-effect:hover {
+  animation: glitch 0.5s ease-in-out, glitch-skew 0.5s ease-in-out;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-effect:hover::before {
+  animation: glitch 0.3s ease-in-out infinite;
+  color: var(--neon-cyan);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.glitch-effect:hover::after {
+  animation: glitch 0.3s ease-in-out infinite reverse;
+  color: var(--neon-pink);
+  opacity: 0.8;
+  z-index: -2;
+}
+
+/* Always-on glitch effect (not just on hover) */
+.glitch-effect-always {
+  position: relative;
+  animation: glitch 0.5s ease-in-out infinite, glitch-skew 0.5s ease-in-out infinite;
+  animation-delay: 0s, 0.1s;
+}
+
+.glitch-effect-always::before,
+.glitch-effect-always::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-effect-always::before {
+  animation: glitch 0.3s ease-in-out infinite;
+  color: var(--neon-cyan);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.glitch-effect-always::after {
+  animation: glitch 0.3s ease-in-out infinite reverse;
+  color: var(--neon-pink);
+  opacity: 0.8;
+  z-index: -2;
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+.text-flicker {
+  animation: text-flicker 0.1s ease-in-out infinite;
+}
+
+.chromatic {
+  animation: chromatic-aberration 2s ease-in-out infinite;
+}
+
+/* GTA-style card hover */
+.gta-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.gta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  transition: left 0.5s ease-in-out;
+}
+
+.gta-card:hover::before {
+  left: 100%;
+}
+
+.gta-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(255, 51, 102, 0.2);
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Moving scanline */
+.scanline-move::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.3), transparent);
+  animation: scanline-move 4s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Radar effect */
+.radar {
+  position: relative;
+}
+
+.radar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(0, 212, 255, 0.3) 30deg, transparent 60deg);
+  animation: radar-sweep 3s linear infinite;
+  transform-origin: center;
+  border-radius: 50%;
+}
+
+/* Noise texture overlay */
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
