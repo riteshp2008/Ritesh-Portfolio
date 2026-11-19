@@ -286,7 +286,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               transition={{ duration: 0.8, repeat: Infinity }}
             />
             <p className="text-center font-mono text-xs tracking-[0.2em] text-[#888899] sm:text-sm sm:tracking-[0.3em]">
-              FULL STACK Python ENGINEER
+              AI Engineer / Full Stack Developer
             </p>
             <motion.span 
               className="h-4 w-1 bg-[#ff3366]"
