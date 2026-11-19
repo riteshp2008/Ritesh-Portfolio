@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Ritesh Patel | Full Stack Python Engineer',
-  description: 'Python Full Stack Developer with 3+ years of experience in Django, FastAPI, React, and TypeScript. Building enterprise-grade web applications.',
+  title: 'Ritesh Patel | AI Engineer & Full Stack Developer',
+  description: 'AI Engineer and Full Stack Developer specializing in Generative AI, RAG, LangGraph, FastAPI, React, and production-ready AI systems.',
   generator: 'v0.app',
   icons: {
     icon: [
